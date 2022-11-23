@@ -32,7 +32,7 @@ function Collections() {
       <Container>
         <TopBar>
           <span className="back">
-            <Link to="./">👈</Link>
+            <Link to="../">👈</Link>
           </span>
           <span className="header">Collections</span>
         </TopBar>
@@ -40,9 +40,11 @@ function Collections() {
           {data.map(
             (data) => (
               <Img key={data.id}>
-                <img src={data.img_src}></img>
-                <span className="img__title">테스트 콜렉션{data.id}</span>
-                <span>👉</span>
+                <Link to={`/collections/${data.id}`}>
+                  <img src={data.img_src}></img>
+                  <span className="img__title">{data.title}</span>
+                  <span>👉</span>
+                </Link>
               </Img>
             )
             // <Img key={data.id}>

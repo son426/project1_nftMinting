@@ -2,25 +2,33 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Main from "./routes/Main";
 import Collections from "./routes/Collections";
 import Collection from "./routes/Collection";
+import MyCollections from "./routes/MyCollections";
 import MyCollection from "./routes/MyCollection";
 import Sellers from "./routes/Sellers";
 import Seller from "./routes/Seller";
+import Minting from "./routes/Minting";
 
 function Router() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/seller">
+        <Route path="/minting">
+          <Minting />
+        </Route>
+        <Route path="/sellers/:sellerId">
           <Seller />
         </Route>
         <Route path="/sellers">
           <Sellers />
         </Route>
-        <Route path="/collection">
+        <Route path="/mycollections/:imgId">
+          <MyCollection />
+        </Route>
+        <Route path="/collections/:imgId">
           <Collection />
         </Route>
-        <Route path="/mycollection">
-          <MyCollection />
+        <Route path="/mycollections">
+          <MyCollections />
         </Route>
         <Route path="/collections">
           <Collections />

@@ -67,10 +67,10 @@ function Main() {
         </TopBar>
         <Box>
           <Button>
-            <Link to="./mycollection">My Collections</Link>
+            <Link to="./collections">All Collections</Link>
           </Button>
           <Button>
-            <Link to="./collections">All Collections</Link>
+            <Link to="./mycollections">My Collections</Link>
           </Button>
           <Button>
             <Link to="./sellers">All Sellers</Link>
