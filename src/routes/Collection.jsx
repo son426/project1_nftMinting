@@ -5,6 +5,8 @@ import styled from "styled-components";
 import { accentColor, bgColor } from "../style";
 
 const ImgDetail = styled.div`
+  display: flex;
+  justify-content: center;
   img {
     width: 300px;
     height: 300px;
@@ -17,12 +19,30 @@ const Button = styled.button`
   background-color: ${accentColor};
   color: white;
   font-size: 20px;
+  position: fixed;
+  bottom: 10%;
+  left: 10%;
   display: block;
   width: 80%;
   height: 8%;
   margin-bottom: 20px;
   a {
     padding: 20px 40px;
+  }
+`;
+
+const Meta = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  gap: 20px;
+  .title {
+    font-size: 40px;
+    font-weight: 600;
+  }
+  .seller {
+    font-size: 30px;
+    font-weight: 400;
   }
 `;
 
@@ -62,6 +82,12 @@ function Collection() {
         <ImgDetail>
           <img src={data[imgId - 1].img_src} />
         </ImgDetail>
+        <Meta>
+          <span className="title">{data[imgId - 1].title}</span>
+          <span className="seller">{data[imgId - 1].seller}</span>
+          <span className="content">{data[imgId - 1].content}</span>
+        </Meta>
+
         <Button onClick={onClickBtn}>
           <Link to="/minting">구매하기</Link>
         </Button>

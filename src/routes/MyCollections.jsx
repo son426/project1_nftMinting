@@ -44,17 +44,15 @@ function MyCollections() {
           <span className="header">My Collections</span>
         </TopBar>
         <Box>
-          {imgIds === []
-            ? null
-            : imgIds.map((imgId, index) => (
-                <Img key={index}>
-                  <Link to={`/mycollections/${imgId}`}>
-                    <img src={data[imgId - 1].img_src}></img>
-                    <span className="img__title">{data[imgId - 1].title}</span>
-                    <span>👉</span>
-                  </Link>
-                </Img>
-              ))}
+          {imgIds?.map((imgId, index) => (
+            <Img key={index}>
+              <Link to={`/mycollections/${imgId}`}>
+                <img src={data[imgId - 1].img_src}></img>
+                <span className="img__title">{data[imgId - 1].title}</span>
+                <span>👉</span>
+              </Link>
+            </Img>
+          ))}
         </Box>
       </Container>
     </Wrapper>

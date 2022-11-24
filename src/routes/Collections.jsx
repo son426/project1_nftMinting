@@ -8,6 +8,17 @@ const Box = styled.div`
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: auto;
+  .box__link {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .box__link .img__title {
+    margin-left: 5%;
+  }
+  .box__link .img__go {
+    margin-left: 35%;
+  }
 `;
 
 const Img = styled.div`
@@ -40,10 +51,10 @@ function Collections() {
           {data.map(
             (data) => (
               <Img key={data.id}>
-                <Link to={`/collections/${data.id}`}>
+                <Link className="box__link" to={`/collections/${data.id}`}>
                   <img src={data.img_src}></img>
                   <span className="img__title">{data.title}</span>
-                  <span>👉</span>
+                  <span className="img__go">👉</span>
                 </Link>
               </Img>
             )

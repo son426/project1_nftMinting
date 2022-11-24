@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
 
 export const Container = styled.div`
   width: 375px;
-  height: 812px;
+  min-height: 812px;
   border: 5px black solid;
   h1 {
     font-size: 50px;
@@ -20,7 +20,6 @@ export const TopBar = styled.div`
   height: 50px;
   background-color: ${accentColor};
   color: white;
-
   display: flex;
   align-items: center;
   position: relative;
