@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
 export const Container = styled.div`
   width: 375px;
   min-height: 812px;
+  position: relative;
   border: 5px black solid;
   h1 {
     font-size: 50px;

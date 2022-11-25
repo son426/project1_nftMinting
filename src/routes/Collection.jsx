@@ -19,7 +19,7 @@ const Button = styled.button`
   background-color: ${accentColor};
   color: white;
   font-size: 20px;
-  position: fixed;
+  position: absolute;
   bottom: 10%;
   left: 10%;
   display: block;
