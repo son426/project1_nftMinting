@@ -19,21 +19,37 @@ export const Container = styled.div`
 
 export const TopBar = styled.div`
   height: 50px;
-  background-color: ${accentColor};
-  color: white;
+  color: black;
   display: flex;
   align-items: center;
   position: relative;
   justify-content: center;
-  .back {
-    position: absolute;
-    left: 40px;
-    font-size: 25px;
+  margin: 20px;
+  border-top: 5px solid black;
+  font-weight: 600;
+  position: absolute;
+  left: 40px;
+  font-size: 25px;
+
+  span {
+    display: inline-block;
+    width: 200px;
   }
   .header {
     font-weight: 600;
     font-size: 22px;
   }
+`;
+
+export const NavBar = styled.div`
+  position: fixed;
+  bottom: 50px;
+  width: 375px;
+  height: 70px;
+  background-color: tomato;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 `;
 
 const Box = styled.div`
@@ -76,6 +92,14 @@ function Main() {
             <Link to="./sellers">All Sellers</Link>
           </Button>
         </Box>
+        <NavBar>
+          <Link to="/" className="icon__main">
+            메인
+          </Link>
+          <Link to="/mycollections" className="icon__my">
+            My
+          </Link>
+        </NavBar>
       </Container>
     </Wrapper>
   );

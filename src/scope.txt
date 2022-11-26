@@ -1,0 +1,10 @@
+Collection 창에서 로컬스토리지에 id넣어 / 배열말고 그냥 하나씩 갈아지게
+    minting버튼 눌리면 로컬스토리지 안에꺼를, MyCollection에 추가
+    useParams 써보자
+    minting버튼 안눌리면? 자기가 알아서 갈아지나?
+
+
+배열을 두개쓸까
+    imgId : 현재 컬렉션 인덱스 저장. 만약 민팅하기 누르면 imgId값을 imgIds에 추가.
+    imgIds : MyCollections에서는, 얘를 기준으로 렌더링.
+    

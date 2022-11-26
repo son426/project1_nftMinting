@@ -1,6 +1,5 @@
 import { CONTRACTADDRESS, ABI } from "./config";
 import { BigNumber } from "./script2";
-
 let account;
 let mintIndexForSale = 0;
 let maxSaleAmount = 0;

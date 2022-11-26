@@ -50,20 +50,22 @@ function Collection() {
   const { imgId } = useParams();
 
   const onClickBtn = () => {
-    // localStorage.setItem("minting", imgId);
-    // 기존 로컬스토리지에서 인덱스 받아와서, 거기다 새로운거 추가후 다시 로컬스토리지 set
-    const savedImgIds = localStorage.getItem("imgIds");
-    const parsedImgIds = JSON.parse(savedImgIds);
+    localStorage.setItem("imgId", imgId);
 
-    if (parsedImgIds === null) {
-      let imgIds = [];
-      imgIds.push(imgId);
-      localStorage.setItem("imgIds", JSON.stringify(imgIds));
-    } else {
-      let imgIds = parsedImgIds;
-      imgIds.push(imgId);
-      localStorage.setItem("imgIds", JSON.stringify(imgIds));
-    }
+    // // localStorage.setItem("minting", imgId);
+    // // 기존 로컬스토리지에서 인덱스 받아와서, 거기다 새로운거 추가후 다시 로컬스토리지 set
+    // const savedImgIds = localStorage.getItem("imgIds");
+    // const parsedImgIds = JSON.parse(savedImgIds);
+
+    // if (parsedImgIds === null) {
+    //   let imgIds = [];
+    //   imgIds.push(imgId);
+    //   localStorage.setItem("imgIds", JSON.stringify(imgIds));
+    // } else {
+    //   let imgIds = parsedImgIds;
+    //   imgIds.push(imgId);
+    //   localStorage.setItem("imgIds", JSON.stringify(imgIds));
+    // }
   };
 
   // console.log(data);
