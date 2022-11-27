@@ -1968,7 +1968,12 @@
       }
 
       // x < y? Point xc to the array of the bigger number.
-      if (xLTy) (t = xc), (xc = yc), (yc = t), (y.s = -y.s);
+      if (xLTy) {
+        t = xc;
+        xc = yc;
+        yc = t;
+        y.s = -y.s;
+      }
 
       b = (j = yc.length) - (i = xc.length);
 
@@ -2130,8 +2135,14 @@
       ycL = yc.length;
 
       // Ensure xc points to longer array and xcL to its length.
-      if (xcL < ycL)
-        (zc = xc), (xc = yc), (yc = zc), (i = xcL), (xcL = ycL), (ycL = i);
+      if (xcL < ycL) {
+        zc = xc;
+        xc = yc;
+        yc = zc;
+        i = xcL;
+        xcL = ycL;
+        ycL = i;
+      }
 
       // Initialise the result array with zeros.
       for (i = xcL + ycL, zc = []; i--; zc.push(0));
@@ -2250,7 +2261,12 @@
       b = yc.length;
 
       // Point xc to the longer array, and b to the shorter length.
-      if (a - b < 0) (t = yc), (yc = xc), (xc = t), (b = a);
+      if (a - b < 0) {
+        t = yc;
+        yc = xc;
+        xc = t;
+        b = a;
+      }
 
       // Only start adding at yc.length - 1 as the further digits of xc can be ignored.
       for (a = 0; b; ) {
@@ -2535,7 +2551,12 @@
           intDigits = isNeg ? intPart.slice(1) : intPart,
           len = intDigits.length;
 
-        if (g2) (i = g1), (g1 = g2), (g2 = i), (len -= i);
+        if (g2) {
+          i = g1;
+          g1 = g2;
+          g2 = i;
+          len -= i;
+        }
 
         if (g1 > 0 && len > 0) {
           i = len % g1 || g1;
@@ -2882,8 +2903,8 @@
   BigNumber["default"] = BigNumber.BigNumber = BigNumber;
 
   // AMD.
-  if (typeof define == "function" && define.amd) {
-    define(function () {
+  if (typeof window.define == "function" && window.define.amd) {
+    window.define(function () {
       return BigNumber;
     });
 
@@ -2894,7 +2915,8 @@
     // Browser.
   } else {
     if (!globalObject) {
-      globalObject = typeof self != "undefined" && self ? self : window;
+      globalObject =
+        typeof window.self != "undefined" && window.self ? window.self : window;
     }
 
     globalObject.BigNumber = BigNumber;

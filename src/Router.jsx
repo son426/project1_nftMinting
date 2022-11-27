@@ -7,6 +7,8 @@ import MyCollection from "./routes/MyCollection";
 import Sellers from "./routes/Sellers";
 import Seller from "./routes/Seller";
 import Minting from "./routes/Minting";
+import ProjectDetail from "./routes/ProjectDetail";
+import Projects from "./routes/Projects";
 
 function Router() {
   return (
@@ -15,23 +17,29 @@ function Router() {
         <Route path="/minting">
           <Minting />
         </Route>
-        <Route path="/sellers/:sellerId">
+        {/* <Route path="/sellers/:sellerId">
           <Seller />
         </Route>
         <Route path="/sellers">
           <Sellers />
-        </Route>
+        </Route> */}
         <Route path="/mycollections/:imgId">
           <MyCollection />
         </Route>
         <Route path="/collections/:imgId">
           <Collection />
         </Route>
+        <Route path="/projectdetail/:projectId">
+          <ProjectDetail />
+        </Route>
         <Route path="/mycollections">
           <MyCollections />
         </Route>
-        <Route path="/collections">
+        {/* <Route path="/collections">
           <Collections />
+        </Route> */}
+        <Route path="/projects">
+          <Projects />
         </Route>
         <Route path="/">
           <Main />

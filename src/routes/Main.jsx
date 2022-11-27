@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { accentColor, bgColor } from "../style";
 import { Link } from "react-router-dom";
+import data from "../data.json";
 export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -8,9 +9,12 @@ export const Wrapper = styled.div`
 
 export const Container = styled.div`
   width: 375px;
-  min-height: 812px;
+  height: 812px;
   position: relative;
-  border: 5px black solid;
+  border: 1px black solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   h1 {
     font-size: 50px;
     font-weight: 600;
@@ -21,44 +25,31 @@ export const TopBar = styled.div`
   height: 50px;
   color: black;
   display: flex;
-  align-items: center;
   position: relative;
-  justify-content: center;
-  margin: 20px;
+  margin-top: 20px;
   border-top: 5px solid black;
-  font-weight: 600;
   position: absolute;
   left: 40px;
   font-size: 25px;
-
-  span {
-    display: inline-block;
-    width: 200px;
-  }
+  width: 80%;
+  justify-content: center;
   .header {
     font-weight: 600;
     font-size: 22px;
+    margin-top: 10px;
   }
 `;
 
-export const NavBar = styled.div`
-  position: fixed;
-  bottom: 50px;
-  width: 375px;
-  height: 70px;
-  background-color: tomato;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-`;
-
-const Box = styled.div`
+export const Box = styled.div`
   height: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: absolute;
+  top: 120px;
 `;
+
 const Button = styled.button`
   border: transparent;
   border-radius: 5px;
@@ -66,7 +57,6 @@ const Button = styled.button`
   color: white;
   font-size: 20px;
   display: block;
-  width: 80%;
   height: 8%;
   margin-bottom: 20px;
   a {
@@ -83,23 +73,12 @@ function Main() {
         </TopBar>
         <Box>
           <Button>
-            <Link to="./collections">All Collections</Link>
+            <Link to="./projects">Projects</Link>
           </Button>
           <Button>
-            <Link to="./mycollections">My Collections</Link>
-          </Button>
-          <Button>
-            <Link to="./sellers">All Sellers</Link>
+            <Link to="./mycollections">MyPage</Link>
           </Button>
         </Box>
-        <NavBar>
-          <Link to="/" className="icon__main">
-            메인
-          </Link>
-          <Link to="/mycollections" className="icon__my">
-            My
-          </Link>
-        </NavBar>
       </Container>
     </Wrapper>
   );

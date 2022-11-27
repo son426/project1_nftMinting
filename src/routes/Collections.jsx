@@ -48,20 +48,15 @@ function Collections() {
           <span className="header">Collections</span>
         </TopBar>
         <Box>
-          {data.map(
-            (data) => (
-              <Img key={data.id}>
-                <Link className="box__link" to={`/collections/${data.id}`}>
-                  <img src={data.img_src}></img>
-                  <span className="img__title">{data.title}</span>
-                  <span className="img__go">👉</span>
-                </Link>
-              </Img>
-            )
-            // <Img key={data.id}>
-            //   <img src={data.img_src} />
-            // </Img>
-          )}
+          {data.map((data) => (
+            <Img key={data.id}>
+              <Link className="box__link" to={`/collections/${data.id}`}>
+                <img src={data.img_src}></img>
+                <span className="img__title">{data.title}</span>
+                <span className="img__go">👉</span>
+              </Link>
+            </Img>
+          ))}
         </Box>
       </Container>
     </Wrapper>
