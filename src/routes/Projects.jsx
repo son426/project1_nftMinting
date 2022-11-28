@@ -42,7 +42,7 @@ function Projects() {
         </TopBar>
         <Box>
           {data.map((data) => (
-            <Link to={`/projectdetail/${data.id}`} key={data.id}>
+            <Link to={`/projects/${data.id}`} key={data.id}>
               <Project>
                 <img src={data.project_img_src} />
                 <span className="title">{data.project_title}</span>

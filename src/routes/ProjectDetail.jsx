@@ -47,9 +47,10 @@ function ProjectDetail() {
     <Wrapper>
       <Container>
         <TopBar>
-          <span className="header">
-            About {data[projectId - 1].project_title}
+          <span className="back">
+            <Link to="./">👈</Link>
           </span>
+          <span className="header">{data[projectId - 1].project_title}</span>
         </TopBar>
         <Box>
           <Project>
@@ -61,14 +62,29 @@ function ProjectDetail() {
               <Link to="/collections/1">
                 <img src={data[projectId - 1].img1_src} />
               </Link>
-              <Link to="/collections/2">
+              <Link to="/collections/1">
                 <img src={data[projectId - 1].img2_src} />
               </Link>
               <Link to="/collections/1">
                 <img src={data[projectId - 1].img3_src} />
               </Link>
-              <Link to="/collections/2">
+              <Link to="/collections/1">
                 <img src={data[projectId - 1].img4_src} />
+              </Link>
+              <Link to="/collections/1">
+                <img src={data[projectId - 1].img5_src} />
+              </Link>
+              <Link to="/collections/1">
+                <img src={data[projectId - 1].img6_src} />
+              </Link>
+              <Link to="/collections/1">
+                <img src={data[projectId - 1].img7_src} />
+              </Link>
+              <Link to="/collections/1">
+                <img src={data[projectId - 1].img8_src} />
+              </Link>
+              <Link to="/collections/1">
+                <img src={data[projectId - 1].img9_src} />
               </Link>
             </Carousel>
           </Project>

@@ -1,9 +1,9 @@
-import { Wrapper, Container, TopBar } from "./Main";
+import { Wrapper, Container, TopBar, Box } from "./Main";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import data from "../data.json";
 
-const Box = styled.div`
+const BoxCustom = styled(Box)`
   padding: 20px;
   display: grid;
   grid-template-columns: auto;
@@ -42,12 +42,9 @@ function Collections() {
     <Wrapper>
       <Container>
         <TopBar>
-          <span className="back">
-            <Link to="../">👈</Link>
-          </span>
           <span className="header">Collections</span>
         </TopBar>
-        <Box>
+        <BoxCustom>
           {data.map((data) => (
             <Img key={data.id}>
               <Link className="box__link" to={`/collections/${data.id}`}>
@@ -57,7 +54,7 @@ function Collections() {
               </Link>
             </Img>
           ))}
-        </Box>
+        </BoxCustom>
       </Container>
     </Wrapper>
   );

@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
 
 export const Container = styled.div`
   width: 375px;
-  height: 812px;
+  min-height: 812px;
   position: relative;
   border: 1px black solid;
   display: flex;
@@ -24,7 +24,6 @@ export const Container = styled.div`
 export const TopBar = styled.div`
   height: 50px;
   color: black;
-  display: flex;
   position: relative;
   margin-top: 20px;
   border-top: 5px solid black;
@@ -32,11 +31,17 @@ export const TopBar = styled.div`
   left: 40px;
   font-size: 25px;
   width: 80%;
-  justify-content: center;
+  display: flex;
   .header {
     font-weight: 600;
     font-size: 22px;
     margin-top: 10px;
+    width: 100%;
+    text-align: center;
+  }
+  .back {
+    position: absolute;
+    left: 0;
   }
 `;
 
@@ -45,12 +50,12 @@ export const Box = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+
   position: absolute;
   top: 120px;
 `;
 
-const Button = styled.button`
+export const Button = styled.button`
   border: transparent;
   border-radius: 5px;
   background-color: ${accentColor};

@@ -1,14 +1,7 @@
-import { Wrapper, Container, TopBar } from "./Main";
+import { Wrapper, Container, TopBar, Box } from "./Main";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import data from "../data.json";
-
-const Box = styled.div`
-  padding: 20px;
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: auto;
-`;
 
 const Img = styled.div`
   display: flex;

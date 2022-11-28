@@ -29,15 +29,16 @@ function Router() {
         <Route path="/collections/:imgId">
           <Collection />
         </Route>
-        <Route path="/projectdetail/:projectId">
-          <ProjectDetail />
-        </Route>
+
         <Route path="/mycollections">
           <MyCollections />
         </Route>
         {/* <Route path="/collections">
           <Collections />
         </Route> */}
+        <Route path="/projects/:projectId">
+          <ProjectDetail />
+        </Route>
         <Route path="/projects">
           <Projects />
         </Route>

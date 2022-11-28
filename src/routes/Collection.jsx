@@ -1,4 +1,4 @@
-import { Wrapper, Container, TopBar } from "./Main";
+import { Wrapper, Container, TopBar, Box } from "./Main";
 import { useParams, Link } from "react-router-dom";
 import data from "../data.json";
 import styled from "styled-components";
@@ -77,19 +77,20 @@ function Collection() {
       <Container>
         <TopBar>
           <span className="back">
-            <Link to="./">👈</Link>
+            <Link to="../projects">👈</Link>
           </span>
           <span className="header">Collection</span>
         </TopBar>
-        <ImgDetail>
-          <img src={data[imgId - 1].img_src} />
-        </ImgDetail>
-        <Meta>
-          <span className="title">{data[imgId - 1].title}</span>
-          <span className="seller">{data[imgId - 1].seller}</span>
-          <span className="content">{data[imgId - 1].content}</span>
-        </Meta>
-
+        <Box>
+          <ImgDetail>
+            <img src={data[imgId - 1].img_src} />
+          </ImgDetail>
+          <Meta>
+            <span className="title">{data[imgId - 1].title}</span>
+            <span className="seller">{data[imgId - 1].seller}</span>
+            <span className="content">{data[imgId - 1].content}</span>
+          </Meta>
+        </Box>
         <Button onClick={onClickBtn}>
           <Link to="/minting">구매하기</Link>
         </Button>
