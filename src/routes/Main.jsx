@@ -1,7 +1,16 @@
 import styled from "styled-components";
 import { accentColor, bgColor } from "../style";
 import { Link } from "react-router-dom";
-import data from "../data.json";
+import {
+  db,
+  getFirestore,
+  collection,
+  getDocs,
+  query,
+  where,
+  orderBy,
+} from "../firebase";
+
 export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -70,6 +79,37 @@ export const Button = styled.button`
 `;
 
 function Main() {
+  // 파이어베이스
+
+  // 값 추가하기
+
+  db.collection("cities")
+    .add({
+      name: "Tokyo",
+      country: "Japan",
+    })
+    .then((docRef) => {
+      console.log("Document written with ID: ", docRef.id);
+    })
+    .catch((error) => {
+      console.error("Error adding document: ", error);
+    });
+
+  // 값 가져오기
+  const q = query(collection(db, "board"));
+  getDocs(q).then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      console.log(doc);
+      // let data = doc.data(); //저장된 데이터
+      // let id = doc.id; //고유 아이디
+      // console.log(data);
+    });
+  });
+
+  // 값 수정하기
+
+  // 값 삭제하기
+
   return (
     <Wrapper>
       <Container>
