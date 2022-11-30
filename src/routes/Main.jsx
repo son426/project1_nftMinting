@@ -83,28 +83,28 @@ function Main() {
 
   // 값 추가하기
 
-  db.collection("cities")
-    .add({
-      name: "Tokyo",
-      country: "Japan",
-    })
-    .then((docRef) => {
-      console.log("Document written with ID: ", docRef.id);
-    })
-    .catch((error) => {
-      console.error("Error adding document: ", error);
-    });
+  // db.collection("cities")
+  //   .add({
+  //     name: "Tokyo",
+  //     country: "Japan",
+  //   })
+  //   .then((docRef) => {
+  //     console.log("Document written with ID: ", docRef.id);
+  //   })
+  //   .catch((error) => {
+  //     console.error("Error adding document: ", error);
+  //   });
 
-  // 값 가져오기
-  const q = query(collection(db, "board"));
-  getDocs(q).then((querySnapshot) => {
-    querySnapshot.forEach((doc) => {
-      console.log(doc);
-      // let data = doc.data(); //저장된 데이터
-      // let id = doc.id; //고유 아이디
-      // console.log(data);
-    });
-  });
+  // // 값 가져오기
+  // const q = query(collection(db, "board"));
+  // getDocs(q).then((querySnapshot) => {
+  //   querySnapshot.forEach((doc) => {
+  //     console.log(doc);
+  //     // let data = doc.data(); //저장된 데이터
+  //     // let id = doc.id; //고유 아이디
+  //     // console.log(data);
+  //   });
+  // });
 
   // 값 수정하기
 

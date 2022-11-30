@@ -119,12 +119,15 @@ async function publicMint() {
     });
     if (result != null) {
       console.log(result);
+      localStorage.setItem("minting", true);
       alert("민팅에 성공하였습니다.");
     }
   } catch (error) {
     console.log(error);
+    localStorage.setItem("minting", false);
     alert("민팅에 실패하였습니다.");
   }
+  console.log("publicMintDone");
 }
 
 export { publicMint, cntBlockNumber, connect, check_status };

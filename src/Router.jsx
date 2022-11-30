@@ -9,11 +9,15 @@ import Seller from "./routes/Seller";
 import Minting from "./routes/Minting";
 import ProjectDetail from "./routes/ProjectDetail";
 import Projects from "./routes/Projects";
+import { Practice } from "./routes/Practice";
 
 function Router() {
   return (
     <BrowserRouter>
       <Switch>
+        <Route path="/practice">
+          <Practice />
+        </Route>
         <Route path="/minting">
           <Minting />
         </Route>

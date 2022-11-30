@@ -1,4 +1,5 @@
 import { Wrapper, Container, TopBar, Box } from "./Main";
+import { CardList, Img } from "./Practice";
 import { useParams, Link } from "react-router-dom";
 import styled from "styled-components";
 import data from "../data.json";
@@ -58,7 +59,47 @@ function ProjectDetail() {
             <span className="summary">
               {data[projectId - 1].project_summary}
             </span>
-            <Carousel>
+            <CardList>
+              <div className="container">
+                <div className="card">
+                  <h3 className="title">Card 1</h3>
+                  <Img>
+                    <img src={data[0].img_src} />
+                  </Img>
+                </div>
+                <div className="card">
+                  <h3 className="title">Card 1</h3>
+                  <Img>
+                    <img src={data[0].img_src} />
+                  </Img>
+                </div>
+                <div className="card">
+                  <h3 className="title">Card 1</h3>
+                  <Img>
+                    <img src={data[0].img_src} />
+                  </Img>
+                </div>
+                <div className="card">
+                  <h3 className="title">Card 1</h3>
+                  <Img>
+                    <img src={data[0].img_src} />
+                  </Img>
+                </div>
+                <div className="card">
+                  <h3 className="title">Card 2</h3>
+                </div>
+                <div className="card">
+                  <h3 className="title">Card 3</h3>
+                </div>
+                <div className="card">
+                  <h3 className="title">Card 4</h3>
+                </div>
+                <div className="card">
+                  <h3 className="title">Card 4</h3>
+                </div>
+              </div>
+            </CardList>
+            {/* <Carousel>
               <Link to="/collections/1">
                 <img src={data[projectId - 1].img1_src} />
               </Link>
@@ -86,7 +127,7 @@ function ProjectDetail() {
               <Link to="/collections/1">
                 <img src={data[projectId - 1].img9_src} />
               </Link>
-            </Carousel>
+            </Carousel> */}
           </Project>
         </Box>
       </Container>
