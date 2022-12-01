@@ -5,9 +5,29 @@ import styled from "styled-components";
 import { accentColor, bgColor } from "../style";
 
 const ImgDetail = styled.div`
+  display: flex;
+  justify-content: center;
   img {
     width: 300px;
     height: 300px;
+  }
+`;
+
+const Button = styled.button`
+  border: transparent;
+  border-radius: 5px;
+  background-color: ${accentColor};
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  display: block;
+  width: 80%;
+  height: 8%;
+  margin-bottom: 20px;
+  a {
+    padding: 20px 40px;
   }
 `;
 
@@ -28,6 +48,7 @@ const Meta = styled.div`
 
 function MyCollection() {
   const { imgId } = useParams();
+  const projectNum = localStorage.getItem("projectNum") - 1;
 
   // const onClickBtn = () => {
   //   // localStorage.setItem("minting", imgId);
@@ -55,18 +76,19 @@ function MyCollection() {
       <Container>
         <TopBar>
           <span className="back">
-            <Link to="./">👈</Link>
+            <Link to={`/mycollection`}>👈</Link>
           </span>
-          <span className="header">MyCollection</span>
+          <span className="header">Collection</span>
         </TopBar>
         <Box>
           <ImgDetail>
-            <img src={data[imgId - 1].img_src} />
+            <img src={data[projectNum].imgs[imgId]} />
           </ImgDetail>
           <Meta>
-            <span className="title">{data[imgId - 1].title}</span>
-            <span className="seller">{data[imgId - 1].seller}</span>
-            <span className="content">{data[imgId - 1].content}</span>
+            <span className="title">{data[projectNum].metas[imgId].title}</span>
+            <span className="content">
+              {data[projectNum].metas[imgId].content}
+            </span>
           </Meta>
         </Box>
       </Container>

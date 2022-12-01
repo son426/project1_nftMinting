@@ -48,6 +48,7 @@ const Meta = styled.div`
 
 function Collection() {
   const { imgId } = useParams();
+  const projectNum = localStorage.getItem("projectNum") - 1;
 
   const onClickBtn = () => {
     localStorage.setItem("imgId", imgId);
@@ -68,27 +69,24 @@ function Collection() {
     // }
   };
 
-  // console.log(data);
-  // console.log(imgId);
-  // console.log(data[imgId - 1]);
-
   return (
     <Wrapper>
       <Container>
         <TopBar>
           <span className="back">
-            <Link to="../projects">👈</Link>
+            <Link to={`/projects/${projectNum + 1}`}>👈</Link>
           </span>
           <span className="header">Collection</span>
         </TopBar>
         <Box>
           <ImgDetail>
-            <img src={data[imgId - 1].img_src} />
+            <img src={data[projectNum].imgs[imgId]} />
           </ImgDetail>
           <Meta>
-            <span className="title">{data[imgId - 1].title}</span>
-            <span className="seller">{data[imgId - 1].seller}</span>
-            <span className="content">{data[imgId - 1].content}</span>
+            <span className="title">{data[projectNum].metas[imgId].title}</span>
+            <span className="content">
+              {data[projectNum].metas[imgId].content}
+            </span>
           </Meta>
         </Box>
         <Button onClick={onClickBtn}>

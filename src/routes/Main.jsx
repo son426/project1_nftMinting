@@ -55,11 +55,11 @@ export const TopBar = styled.div`
 `;
 
 export const Box = styled.div`
-  height: 80%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  overflow: hidden;
   position: absolute;
   top: 120px;
 `;

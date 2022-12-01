@@ -21,25 +21,15 @@ function Router() {
         <Route path="/minting">
           <Minting />
         </Route>
-        {/* <Route path="/sellers/:sellerId">
-          <Seller />
-        </Route>
-        <Route path="/sellers">
-          <Sellers />
-        </Route> */}
         <Route path="/mycollections/:imgId">
           <MyCollection />
         </Route>
-        <Route path="/collections/:imgId">
+        <Route path="/collection/:imgId">
           <Collection />
         </Route>
-
         <Route path="/mycollections">
           <MyCollections />
         </Route>
-        {/* <Route path="/collections">
-          <Collections />
-        </Route> */}
         <Route path="/projects/:projectId">
           <ProjectDetail />
         </Route>
@@ -49,6 +39,15 @@ function Router() {
         <Route path="/">
           <Main />
         </Route>
+        {/* <Route path="/sellers/:sellerId">
+          <Seller />
+        </Route>
+        <Route path="/sellers">
+          <Sellers />
+        </Route> */}
+        {/* <Route path="/collections">
+          <Collections />
+        </Route> */}
       </Switch>
     </BrowserRouter>
   );

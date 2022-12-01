@@ -22,10 +22,13 @@ const Img = styled.div`
 function MyCollections() {
   // 로컬스토리지에서 저장된 인덱스 받아오기.
   let imgIds = [];
-  const savedImgIds = localStorage.getItem("imgIds");
+  const savedImgIds = localStorage.getItem("myCollection");
   const parsedImgIds = JSON.parse(savedImgIds);
+  const projectNum = localStorage.getItem("projectNum") - 1;
 
   imgIds = parsedImgIds;
+
+  console.log(imgIds);
 
   return (
     <Wrapper>
@@ -40,8 +43,10 @@ function MyCollections() {
           {imgIds?.map((imgId, index) => (
             <Img key={index}>
               <Link to={`/mycollections/${imgId}`}>
-                <img src={data[imgId - 1].img_src}></img>
-                <span className="img__title">{data[imgId - 1].title}</span>
+                <img src={data[projectNum].imgs[imgId]}></img>
+                <span className="img__title">
+                  {data[projectNum].metas["title"]}
+                </span>
                 <span>👉</span>
               </Link>
             </Img>

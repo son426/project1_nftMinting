@@ -3,14 +3,18 @@ import { accentColor } from "../style";
 import data from "../data.json";
 
 const CardList = styled.div`
+  width: 100vh;
+  height: 100vw;
+
   .container {
     padding: 50px;
     position: absolute;
     height: 400px;
     width: auto;
-    overflow: scroll;
-    box-sizing: border-box;
     display: flex;
+    width: 400vw;
+
+    transform-origin: top left;
   }
 
   .card {

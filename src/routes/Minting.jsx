@@ -14,27 +14,43 @@ const BoxCustom = styled(Box)`
   margin-bottom: 30px;
 `;
 
-function Minting() {
-  const onClickMint = () => {
-    publicMint();
+let imgIndex = 0;
 
-    console.log(localStorage.getItem("minting"));
-    // localStorage.setItem("minting", imgId);
-    // 기존 로컬스토리지에서 인덱스 받아와서, 거기다 새로운거 추가후 다시 로컬스토리지 set
-    const savedImgIds = localStorage.getItem("imgIds");
-    const parsedImgIds = JSON.parse(savedImgIds);
-    const currentImgId = localStorage.getItem("imgId");
+const saveImgIds = () => {
+  const minting = JSON.parse(localStorage.getItem("minting"));
+  const savedImgIds = localStorage.getItem("imgIds");
+  const parsedImgIds = JSON.parse(savedImgIds);
 
+  if (minting === true) {
     if (parsedImgIds === null) {
       let imgIds = [];
-      imgIds.push(currentImgId);
-      localStorage.setItem("imgIds", JSON.stringify(imgIds));
+      imgIds.push(imgIndex);
+      localStorage.setItem("myCollection", JSON.stringify(imgIds));
     } else {
       let imgIds = parsedImgIds;
-      imgIds.push(currentImgId);
-      localStorage.setItem("imgIds", JSON.stringify(imgIds));
+      imgIds.push(imgIndex);
+      localStorage.setItem("myCollection", JSON.stringify(imgIds));
     }
-    console.log("imgidsDone");
+
+    console.log("이미지저장 성공");
+    console.log(`기존 imgIndex : ${imgIndex}`);
+    imgIndex++;
+    console.log(`증가 imgIndex : ${imgIndex}`);
+  } else {
+    console.log("이미지저장 실패");
+    console.log(`기존 imgIndex : ${imgIndex}`);
+    imgIndex++;
+    console.log(`증가 imgIndex : ${imgIndex}`);
+  }
+};
+
+function Minting() {
+  const onClickMint = () => {
+    // 이거 어떻게 바꾸지.
+    // 민팅 성공일때만 하는 코드
+    // async,await // promise 등 공부필요
+    publicMint();
+    setTimeout(saveImgIds, 7000);
   };
 
   const onClickConnect = (e) => {

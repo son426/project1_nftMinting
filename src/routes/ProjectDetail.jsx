@@ -1,48 +1,12 @@
-import { Wrapper, Container, TopBar, Box } from "./Main";
-import { CardList, Img } from "./Practice";
+import { Wrapper, Container, TopBar, Box, Button } from "./Main";
+import { Project, ImgList } from "../style";
 import { useParams, Link } from "react-router-dom";
 import styled from "styled-components";
 import data from "../data.json";
 
-const Project = styled.div`
-  width: 375px;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 10px;
-  img {
-    width: 100%;
-  }
-  span {
-    padding: 20px;
-    line-height: 1.2rem;
-  }
-  .summary {
-    font-size: 15px;
-    font-weight: 600;
-    color: rgba(0, 0, 0, 0.8);
-  }
-`;
-
-const Carousel = styled.div`
-  width: 100%;
-  display: flex;
-  overflow: scroll;
-  -webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera*/
-  }
-  -ms-overflow-style: none;
-  ::-webkit-scrollbar {
-    display: none;
-  }
-
-  img {
-    width: 130px;
-    height: 130px;
-  }
-`;
-
 function ProjectDetail() {
   const { projectId } = useParams();
+  localStorage.setItem("projectNum", projectId);
 
   return (
     <Wrapper>
@@ -59,76 +23,17 @@ function ProjectDetail() {
             <span className="summary">
               {data[projectId - 1].project_summary}
             </span>
-            <CardList>
-              <div className="container">
-                <div className="card">
-                  <h3 className="title">Card 1</h3>
-                  <Img>
-                    <img src={data[0].img_src} />
-                  </Img>
-                </div>
-                <div className="card">
-                  <h3 className="title">Card 1</h3>
-                  <Img>
-                    <img src={data[0].img_src} />
-                  </Img>
-                </div>
-                <div className="card">
-                  <h3 className="title">Card 1</h3>
-                  <Img>
-                    <img src={data[0].img_src} />
-                  </Img>
-                </div>
-                <div className="card">
-                  <h3 className="title">Card 1</h3>
-                  <Img>
-                    <img src={data[0].img_src} />
-                  </Img>
-                </div>
-                <div className="card">
-                  <h3 className="title">Card 2</h3>
-                </div>
-                <div className="card">
-                  <h3 className="title">Card 3</h3>
-                </div>
-                <div className="card">
-                  <h3 className="title">Card 4</h3>
-                </div>
-                <div className="card">
-                  <h3 className="title">Card 4</h3>
-                </div>
-              </div>
-            </CardList>
-            {/* <Carousel>
-              <Link to="/collections/1">
-                <img src={data[projectId - 1].img1_src} />
-              </Link>
-              <Link to="/collections/1">
-                <img src={data[projectId - 1].img2_src} />
-              </Link>
-              <Link to="/collections/1">
-                <img src={data[projectId - 1].img3_src} />
-              </Link>
-              <Link to="/collections/1">
-                <img src={data[projectId - 1].img4_src} />
-              </Link>
-              <Link to="/collections/1">
-                <img src={data[projectId - 1].img5_src} />
-              </Link>
-              <Link to="/collections/1">
-                <img src={data[projectId - 1].img6_src} />
-              </Link>
-              <Link to="/collections/1">
-                <img src={data[projectId - 1].img7_src} />
-              </Link>
-              <Link to="/collections/1">
-                <img src={data[projectId - 1].img8_src} />
-              </Link>
-              <Link to="/collections/1">
-                <img src={data[projectId - 1].img9_src} />
-              </Link>
-            </Carousel> */}
+            <ImgList>
+              {data[projectId - 1].imgs.map((img_src, index) => (
+                <Link key={index} to={`/collection/${index}`}>
+                  <img src={img_src} />
+                </Link>
+              ))}
+            </ImgList>
           </Project>
+          <Button>
+            <Link to="/minting">기부하러가기</Link>
+          </Button>
         </Box>
       </Container>
     </Wrapper>

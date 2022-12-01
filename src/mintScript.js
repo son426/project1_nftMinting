@@ -99,9 +99,11 @@ async function publicMint() {
   await check_status();
   if (maxSaleAmount + 1 <= mintIndexForSale) {
     alert("모든 물량이 소진되었습니다.");
+    console.log("모든 물량이 소진되었습니다.");
     return;
   } else if (blockNumber <= mintStartBlockNumber) {
     alert("아직 민팅이 시작되지 않았습니다.");
+    console.log("아직 민팅이 시작되지 않았습니다.");
     return;
   }
   const total_value = BigNumber(amount * mintPrice);
@@ -120,14 +122,17 @@ async function publicMint() {
     if (result != null) {
       console.log(result);
       localStorage.setItem("minting", true);
+      console.log("로컬스토리지 minting=true 세팅완료");
       alert("민팅에 성공하였습니다.");
+      console.log("publicMint success");
     }
   } catch (error) {
     console.log(error);
     localStorage.setItem("minting", false);
+    console.log("로컬스토리지 minting=false 세팅완료");
     alert("민팅에 실패하였습니다.");
+    console.log("publicMint fail");
   }
-  console.log("publicMintDone");
 }
 
 export { publicMint, cntBlockNumber, connect, check_status };
