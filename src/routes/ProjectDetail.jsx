@@ -3,6 +3,7 @@ import { Project, ImgList } from "../style";
 import { useParams, Link } from "react-router-dom";
 import styled from "styled-components";
 import data from "../data.json";
+import { Icon } from "./Projects";
 
 function ProjectDetail() {
   const { projectId } = useParams();
@@ -13,7 +14,7 @@ function ProjectDetail() {
       <Container>
         <TopBar>
           <span className="back">
-            <Link to="./">👈</Link>
+            <Link to="./">{Icon}</Link>
           </span>
           <span className="header">{data[projectId - 1].project_title}</span>
         </TopBar>

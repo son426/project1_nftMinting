@@ -1,5 +1,6 @@
 import Router from "./Router";
 import { createGlobalStyle } from "styled-components";
+import { accentColor, bgColor } from "./style";
 
 const GlobalStyle = createGlobalStyle`
   html, body, div, span, applet, object, iframe,
@@ -30,6 +31,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	background-color: ${bgColor};
 }
 ol, ul {
 	list-style: none;

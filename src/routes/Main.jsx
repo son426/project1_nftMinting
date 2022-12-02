@@ -1,15 +1,8 @@
 import styled from "styled-components";
 import { accentColor, bgColor } from "../style";
 import { Link } from "react-router-dom";
-import {
-  db,
-  getFirestore,
-  collection,
-  getDocs,
-  query,
-  where,
-  orderBy,
-} from "../firebase";
+import { db, firebaseApp, auth } from "../firebase";
+import { collection, addDoc, getDocs } from "firebase/firestore";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -51,11 +44,22 @@ export const TopBar = styled.div`
   .back {
     position: absolute;
     left: 0;
+    display: flex;
+    align-items: center;
+  }
+  .icon {
+    position: absolute;
+    top: 8px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 25px;
   }
 `;
 
 export const Box = styled.div`
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -78,38 +82,15 @@ export const Button = styled.button`
   }
 `;
 
+const querySnapshot = await getDocs(collection(db, "board"));
+/* cities라는 컬렉션의 모든 문서를 담는 변수 */
+querySnapshot.forEach((doc) => {
+  // doc.data() is never undefined for query doc snapshots
+  console.log(doc.id, " => ", doc.data());
+  /* 이 부분에서 console.log 대신 setState()를 이용해 원하는 변수에 담아주면 된다. */
+});
+
 function Main() {
-  // 파이어베이스
-
-  // 값 추가하기
-
-  // db.collection("cities")
-  //   .add({
-  //     name: "Tokyo",
-  //     country: "Japan",
-  //   })
-  //   .then((docRef) => {
-  //     console.log("Document written with ID: ", docRef.id);
-  //   })
-  //   .catch((error) => {
-  //     console.error("Error adding document: ", error);
-  //   });
-
-  // // 값 가져오기
-  // const q = query(collection(db, "board"));
-  // getDocs(q).then((querySnapshot) => {
-  //   querySnapshot.forEach((doc) => {
-  //     console.log(doc);
-  //     // let data = doc.data(); //저장된 데이터
-  //     // let id = doc.id; //고유 아이디
-  //     // console.log(data);
-  //   });
-  // });
-
-  // 값 수정하기
-
-  // 값 삭제하기
-
   return (
     <Wrapper>
       <Container>

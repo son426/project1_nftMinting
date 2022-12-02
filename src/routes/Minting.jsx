@@ -9,16 +9,18 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { accentColor, bgColor } from "../style";
 import data from "../data.json";
+import { Icon } from "./Projects";
 
 const BoxCustom = styled(Box)`
   margin-bottom: 30px;
 `;
 
-let imgIndex = 0;
+// imgIndex를 지갑 연결했을 때, 현재 민팅수량으로 받아와야함.
+let imgIndex = localStorage.getItem("mintIndex");
 
 const saveImgIds = () => {
   const minting = JSON.parse(localStorage.getItem("minting"));
-  const savedImgIds = localStorage.getItem("imgIds");
+  const savedImgIds = localStorage.getItem("myCollection");
   const parsedImgIds = JSON.parse(savedImgIds);
 
   if (minting === true) {
@@ -31,16 +33,6 @@ const saveImgIds = () => {
       imgIds.push(imgIndex);
       localStorage.setItem("myCollection", JSON.stringify(imgIds));
     }
-
-    console.log("이미지저장 성공");
-    console.log(`기존 imgIndex : ${imgIndex}`);
-    imgIndex++;
-    console.log(`증가 imgIndex : ${imgIndex}`);
-  } else {
-    console.log("이미지저장 실패");
-    console.log(`기존 imgIndex : ${imgIndex}`);
-    imgIndex++;
-    console.log(`증가 imgIndex : ${imgIndex}`);
   }
 };
 
@@ -68,7 +60,7 @@ function Minting() {
       <Container>
         <TopBar>
           <span className="back">
-            <Link to="./">👈</Link>
+            <Link to="./">{Icon}</Link>
           </span>
           <span className="header">Minting</span>
         </TopBar>
@@ -88,7 +80,6 @@ function Minting() {
             <h2>MY WALLET</h2>
             <p id="myWallet">지갑주소: 연결되지 않음</p>
             <p id="myKlay">잔액: 연결되지 않음</p>
-
             <hr />
           </div>
           <div>

@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import data from "../data.json";
 import styled from "styled-components";
 import { accentColor, bgColor } from "../style";
+import { Icon } from "./Projects";
 
 const ImgDetail = styled.div`
   display: flex;
@@ -76,7 +77,7 @@ function MyCollection() {
       <Container>
         <TopBar>
           <span className="back">
-            <Link to={`/mycollection`}>👈</Link>
+            <Link to={`/mycollections`}>{Icon}</Link>
           </span>
           <span className="header">Collection</span>
         </TopBar>

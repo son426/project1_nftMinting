@@ -53,6 +53,7 @@ async function check_status() {
     .then(function (result) {
       console.log(result);
       mintIndexForSale = parseInt(result[1]);
+      localStorage.setItem("mintIndex", mintIndexForSale);
       mintLimitPerBlock = parseInt(result[2]);
       mintStartBlockNumber = parseInt(result[4]);
       maxSaleAmount = parseInt(result[5]);

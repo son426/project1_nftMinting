@@ -1,8 +1,14 @@
-import { Wrapper, Container, TopBar, Box } from "./Main";
+import { Wrapper, Container, TopBar, Box, backIcon } from "./Main";
 import styled from "styled-components";
 import { accentColor, bgColor } from "../style";
 import { Link } from "react-router-dom";
 import data from "../data.json";
+
+import React from "react";
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+export const Icon = <FontAwesomeIcon className="icon" icon={faChevronLeft} />;
 
 const Project = styled.div`
   width: 100%;
@@ -36,7 +42,7 @@ function Projects() {
       <Container>
         <TopBar>
           <span className="back">
-            <Link to="../">👈</Link>
+            <Link to="../">{Icon}</Link>
           </span>
           <span className="header">Projects</span>
         </TopBar>
