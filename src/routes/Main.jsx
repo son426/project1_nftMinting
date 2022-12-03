@@ -3,6 +3,7 @@ import { accentColor, bgColor } from "../style";
 import { Link } from "react-router-dom";
 import { db, firebaseApp, auth } from "../firebase";
 import { collection, addDoc, getDocs } from "firebase/firestore";
+import { useEffect, useState, useId } from "react";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -81,14 +82,6 @@ export const Button = styled.button`
     padding: 20px 40px;
   }
 `;
-
-const querySnapshot = await getDocs(collection(db, "board"));
-/* cities라는 컬렉션의 모든 문서를 담는 변수 */
-querySnapshot.forEach((doc) => {
-  // doc.data() is never undefined for query doc snapshots
-  console.log(doc.id, " => ", doc.data());
-  /* 이 부분에서 console.log 대신 setState()를 이용해 원하는 변수에 담아주면 된다. */
-});
 
 function Main() {
   return (
