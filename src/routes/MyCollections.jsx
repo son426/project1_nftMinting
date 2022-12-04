@@ -3,6 +3,17 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import data from "../data.json";
 import { Icon } from "./Projects";
+import { useState, useEffect, useId } from "react";
+// 파이어베이서 파일에서 import 해온 db
+import { db } from "../firebase";
+// db에 접근해서 데이터를 꺼내게 도와줄 친구들
+import {
+  collection,
+  getDocs,
+  addDoc,
+  updateDoc,
+  doc,
+} from "firebase/firestore";
 
 const Img = styled.div`
   display: flex;
@@ -43,13 +54,39 @@ const Img = styled.div`
 `;
 
 function MyCollections() {
-  // 로컬스토리지에서 저장된 인덱스 받아오기.
-  let myCollections = [];
-  const savedMyCollections = localStorage.getItem("myCollection");
-  const parsedMyCollections = JSON.parse(savedMyCollections);
-  const projectNum = localStorage.getItem("projectNum") - 1;
+  const [myCollection, setMyCollection] = useState([]);
 
-  myCollections = parsedMyCollections;
+  const myCollectionRef = collection(db, "myCollection");
+
+  useEffect(() => {
+    // 비동기로 데이터 받을준비
+    const getMyCollection = async () => {
+      // getDocs로 컬렉션안에 데이터 가져오기
+      const data = await getDocs(myCollectionRef);
+      // users에 data안의 자료 추가. 객체에 id 덮어씌우는거
+      setMyCollection(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+
+    getMyCollection();
+  }, []);
+
+  const showMyCollection = myCollection.map((value, index) => (
+    <div key={index}>
+      <Img>
+        <Link className="collection" to={`/mycollections/${value.imgId}`}>
+          <img src={data[value.projectNum - 1].imgs[value.imgId]}></img>
+          <div className="text">
+            <span className="title">
+              {data[value.projectNum - 1].metas[value.imgId]["title"]}
+            </span>
+          </div>
+          <div className="arrow">
+            <span>👉</span>
+          </div>
+        </Link>
+      </Img>
+    </div>
+  ));
 
   return (
     <Wrapper>
@@ -60,23 +97,7 @@ function MyCollections() {
           </span>
           <span className="header">My Collections</span>
         </TopBar>
-        <Box>
-          {myCollections?.map((imgId, index) => (
-            <Img key={index}>
-              <Link className="collection" to={`/mycollections/${imgId}`}>
-                <img src={data[projectNum].imgs[imgId]}></img>
-                <div className="text">
-                  <span className="title">
-                    {data[projectNum].metas[imgId]["title"]}
-                  </span>
-                </div>
-                <div className="arrow">
-                  <span>👉</span>
-                </div>
-              </Link>
-            </Img>
-          ))}
-        </Box>
+        <Box>{showMyCollection}</Box>
       </Container>
     </Wrapper>
   );

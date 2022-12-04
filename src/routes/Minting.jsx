@@ -48,8 +48,10 @@ const saveImgIds = () => {
 };
 
 function Minting() {
-  const [projectNum, setProjectNum] = useState("");
-  const [imgId, setImgId] = useState(0);
+  const [projectNum, setProjectNum] = useState(
+    localStorage.getItem("projectNum")
+  );
+  const [imgId, setImgId] = useState(localStorage.getItem("imgId"));
   const [myCollection, setMyCollection] = useState([]);
   const myCollectionRef = collection(db, "myCollection");
 
@@ -70,14 +72,12 @@ function Minting() {
   const createMyCollection = async () => {
     // addDoc을 이용해서 내가 원하는 collection에 내가 원하는 key로 값을 추가한다.
     await addDoc(myCollectionRef, {
-      projectNum: Number(projectNum),
-      imgId: Number(imgId),
+      projectNum: parseInt(projectNum),
+      imgId: parseInt(imgId),
     });
   };
 
   const 로컬스토리지가져와서넘기기 = () => {
-    setImgId(localStorage.getItem("imgId"));
-    setProjectNum(localStorage.getItem("projectNum"));
     createMyCollection();
   };
 
