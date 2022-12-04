@@ -3,3 +3,33 @@ localStorage
 - imgId : 그림하나 눌러서 민팅하기 페이지로 갔을 때, 그 이미지 index를 저장
 - minting : 민팅하기 버튼을 눌렀을 때, 민팅이 성공하면 true / 실패하면 false
 - myCollection : 마이컬렉션에 표시할 이미지 인덱스 배열로 표시 / 이미지 인덱스는 0부터 차례로
+
+
+221204 
+-지갑 연결하기 ok
+-민팅하기 누르면, 에러.
+inpage.js:1 Kaikas - RPC Error: Internal JSON-RPC error. {code: -32603, message: 'Internal JSON-RPC error.'}
+
+- 파이어베이스 연동 연습(Practice1, Practice2)
+컬렉션명 : dataset
+문서 : imgId, projectNum, myCollection, minting
+
+----------계획-----------
+
+
+- 실제 연동할 때는 어떻게?
+컬렉션명 : myCollection
+문서 : imgId, projectNum (얘네는 파이어베이스에 미리 만들어놓을 필요 없나? 새로 만들기만 하고, 업데이트는 없으니까.)
+
+마이컬렉션 페이지에서 : getDataset / showDataset 으로 렌더링
+민팅 페이지에서
+ : publicMint 함수가 에러가 안떴을 때만, minting = true로.
+ : minting는 파이어베이스 아니고, 그냥 let 변수로 하면 될듯?
+ : getDataset / createDataset  으로 민팅 성공한놈 추가
+
+
+-------------------------
+
+일단 민팅이 221204기준 오류뜨니까, 지갑연결 버튼에다가 달아보자. (추후수정)
+
+---로컬스토리에서 가져와서 넘기게 해놓은거 수정하기. 로컬스토리지 안거치게.
