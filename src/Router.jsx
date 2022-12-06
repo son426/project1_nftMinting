@@ -4,12 +4,12 @@ import Collections from "./routes/Collections";
 import Collection from "./routes/Collection";
 import MyCollections from "./routes/MyCollections";
 import MyCollection from "./routes/MyCollection";
-import Sellers from "./routes/Sellers";
-import Seller from "./routes/Seller";
 import Minting from "./routes/Minting";
 import ProjectDetail from "./routes/ProjectDetail";
 import Projects from "./routes/Projects";
 import Practice from "./routes/Practice";
+import Login from "./routes/Login";
+import Register from "./routes/Register";
 
 function Router() {
   return (
@@ -36,18 +36,15 @@ function Router() {
         <Route path="/projects">
           <Projects />
         </Route>
+        <Route path="/register">
+          <Register />
+        </Route>
+        <Route path="/login">
+          <Login />
+        </Route>
         <Route path="/">
           <Main />
         </Route>
-        {/* <Route path="/sellers/:sellerId">
-          <Seller />
-        </Route>
-        <Route path="/sellers">
-          <Sellers />
-        </Route> */}
-        {/* <Route path="/collections">
-          <Collections />
-        </Route> */}
       </Switch>
     </BrowserRouter>
   );
