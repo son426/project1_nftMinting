@@ -14,7 +14,7 @@ function ProjectDetail() {
       <Container>
         <TopBar>
           <span className="back">
-            <Link to="./">{Icon}</Link>
+            <Link to="/projects">{Icon}</Link>
           </span>
           <span className="header">{data[projectId - 1].project_title}</span>
         </TopBar>

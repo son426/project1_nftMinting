@@ -70,7 +70,7 @@ function MyCollections() {
     getMyCollection();
   }, []);
 
-  const showMyCollection = myCollection.map((value, index) => (
+  const showMyCollection = myCollection?.map((value, index) => (
     <div key={index}>
       <Img>
         <Link className="collection" to={`/mycollections/${value.imgId}`}>

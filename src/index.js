@@ -7,6 +7,7 @@ import promiseMiddleware from "redux-promise";
 import ReduxThunk from "redux-thunk";
 import Reducer from "./redux/reducers";
 import app from "./firebase";
+import { BrowserRouter } from "react-router-dom";
 
 const createStoreWithMiddleware = applyMiddleware(
   promiseMiddleware,
@@ -15,13 +16,15 @@ const createStoreWithMiddleware = applyMiddleware(
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <Provider
-    store={createStoreWithMiddleware(
-      Reducer,
-      window.__REDUX_DEVTOOLS_EXTENSION__ &&
-        window.__REDUX_DEVTOOLS_EXTENSION__()
-    )}
-  >
-    <App />
-  </Provider>
+  <BrowserRouter>
+    <Provider
+      store={createStoreWithMiddleware(
+        Reducer,
+        window.__REDUX_DEVTOOLS_EXTENSION__ &&
+          window.__REDUX_DEVTOOLS_EXTENSION__()
+      )}
+    >
+      <App />
+    </Provider>
+  </BrowserRouter>
 );

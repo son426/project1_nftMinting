@@ -8,13 +8,13 @@ import "firebase/compat/firestore";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyC_8v4R9wJMHIacKoh7Z3wmNTsn4k-dQ00",
-  authDomain: "practice1-a41aa.firebaseapp.com",
-  projectId: "practice1-a41aa",
-  storageBucket: "practice1-a41aa.appspot.com",
-  messagingSenderId: "1094613303652",
-  appId: "1:1094613303652:web:119e32bffdcabd58fc3a71",
-  measurementId: "G-LJS4GN3FG4",
+  apiKey: "AIzaSyAtNe84L6PWWZMVK0d8qCiuiY3i5ZJfoiY",
+  authDomain: "happyroulette-fd597.firebaseapp.com",
+  projectId: "happyroulette-fd597",
+  storageBucket: "happyroulette-fd597.appspot.com",
+  messagingSenderId: "152994059392",
+  appId: "1:152994059392:web:78733ed873b81a0e3d0265",
+  measurementId: "G-EDLDEEHJ73",
 };
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);

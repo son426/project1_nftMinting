@@ -107,7 +107,7 @@ function Minting() {
       <Container>
         <TopBar>
           <span className="back">
-            <Link to="./">{Icon}</Link>
+            <Link to={`/projects/${projectNum}`}>{Icon}</Link>
           </span>
           <span className="header">Minting</span>
         </TopBar>

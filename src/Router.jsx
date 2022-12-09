@@ -1,4 +1,4 @@
-import { BrowserRouter, Switch, Route, useHistory } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 import Main from "./routes/Main";
@@ -18,8 +18,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { setUser, clearUser } from "./redux/actions/user_action";
 
 function Router() {
-  const history = useHistory();
-  // navigate("/accounts/login"); 대신에
+  const navigate = useNavigate();
+
+  // navigate("/accounts/login");
   //history.push("/accounts/login");
   let dispatch = useDispatch();
   const isLoading = useSelector((state) => state.user.isLoading);
@@ -30,7 +31,7 @@ function Router() {
       console.log(user);
       if (user) {
         // history.push("/");
-        window.href = "/";
+        navigate("/");
         console.log("유저다.");
         dispatch(setUser(user));
         // User is signed in, see docs for a list of available properties
@@ -38,8 +39,8 @@ function Router() {
         const uid = user.uid;
         // ...
       } else {
-        // history.push("/login");
-        window.href = "/login";
+        // history.push("/login")
+        navigate("/login");
         console.log("유저아니다.");
         dispatch(clearUser());
         // User is signed out
@@ -52,40 +53,18 @@ function Router() {
     return <div>...loading</div>;
   } else {
     return (
-      <BrowserRouter>
-        <Switch>
-          <Route path="/practice">
-            <Practice />
-          </Route>
-          <Route path="/minting">
-            <Minting />
-          </Route>
-          <Route path="/mycollections/:imgId">
-            <MyCollection />
-          </Route>
-          <Route path="/collection/:imgId">
-            <Collection />
-          </Route>
-          <Route path="/mycollections">
-            <MyCollections />
-          </Route>
-          <Route path="/projects/:projectId">
-            <ProjectDetail />
-          </Route>
-          <Route path="/projects">
-            <Projects />
-          </Route>
-          <Route path="/register">
-            <Register />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/">
-            <Main />
-          </Route>
-        </Switch>
-      </BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/practice" element={<Practice />} />
+        <Route path="/minting" element={<Minting />} />
+        <Route path="/mycollections/:imgId" element={<MyCollection />} />
+        <Route path="/collection/:imgId" element={<Collection />} />
+        <Route path="/mycollections" element={<MyCollections />} />
+        <Route path="/projects/:projectId" element={<ProjectDetail />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
     );
   }
 }
