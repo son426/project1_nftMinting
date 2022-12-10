@@ -14,6 +14,7 @@ import {
   updateDoc,
   doc,
 } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 
 const Img = styled.div`
   display: flex;
@@ -55,8 +56,9 @@ const Img = styled.div`
 
 function MyCollections() {
   const [myCollection, setMyCollection] = useState([]);
-
   const myCollectionRef = collection(db, "myCollection");
+  const auth = getAuth();
+  const user = auth.currentUser;
 
   useEffect(() => {
     // 비동기로 데이터 받을준비
@@ -95,7 +97,7 @@ function MyCollections() {
           <span className="back">
             <Link to="/">{Icon}</Link>
           </span>
-          <span className="header">My Collections</span>
+          <span className="header">{user.displayName} Collection</span>
         </TopBar>
         <Box>{showMyCollection}</Box>
       </Container>

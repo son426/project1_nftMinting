@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { accentColor, bgColor } from "../style";
 import { Link } from "react-router-dom";
 import React from "react";
+import { getAuth, signOut } from "firebase/auth";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -82,11 +83,25 @@ export const Button = styled.button`
 `;
 
 function Main() {
+  const onClickSignOut = () => {
+    const auth = getAuth();
+    signOut(auth)
+      .then(() => {
+        console.log("sign-out 성공");
+        // Sign-out successful.
+      })
+      .catch((error) => {
+        console.log("sign-out 실패");
+        // An error happened.
+      });
+  };
+
   return (
     <Wrapper>
       <Container>
         <TopBar>
           <span className="header">Main</span>
+          <button onClick={onClickSignOut}>로그아웃</button>
         </TopBar>
         <Box>
           <Button>

@@ -1,7 +1,5 @@
 import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { useForm } from "react-hook-form";
-import md5 from "md5";
 import { getDatabase, ref, set } from "firebase/database";
 import {
   getAuth,
@@ -31,50 +29,35 @@ const Form = styled.form`
 `;
 
 function Register() {
-  const {
-    register,
-    watch,
-    formState: { errors },
-    handleSubmit,
-  } = useForm();
-  const [errorFromSubmit, setErrorFromSubmit] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
 
-  const password = useRef();
-  password.current = watch("password");
+  const onChangeEmail = (e) => {
+    setEmail(e.currentTarget.value);
+  };
+  const onChangePassword = (e) => {
+    setPassword(e.currentTarget.value);
+  };
+  const onChangeName = (e) => {
+    setName(e.currentTarget.value);
+  };
 
-  const onSubmit = async (data) => {
-    try {
-      setLoading(true);
-
-      const auth = getAuth();
-      let createdUser = await createUserWithEmailAndPassword(
-        auth,
-        data.email,
-        data.password
-      );
-
-      await updateProfile(auth.currentUser, {
-        displayName: data.name,
-        photoURL: `http://gravatar.com/avatar/${md5(
-          createdUser.user.email
-        )}?d=identicon`,
+  const onSubmitRegister = (e) => {
+    e.preventDefault();
+    const auth = getAuth();
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        updateProfile(auth.currentUser, {
+          displayName: name,
+        });
+      })
+      .catch((error) => {
+        console.log("error");
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
       });
-
-      //Firebase 데이터베이스에 저장해주기
-      set(ref(getDatabase(), `users/${createdUser.user.uid}`), {
-        name: createdUser.user.displayName,
-        image: createdUser.user.photoURL,
-      });
-
-      setLoading(false);
-    } catch (error) {
-      setErrorFromSubmit(error.message);
-      setLoading(false);
-      setTimeout(() => {
-        setErrorFromSubmit("");
-      }, 5000);
-    }
   };
 
   return (
@@ -84,72 +67,25 @@ function Register() {
           <span className="header">Register</span>
         </TopBar>
         <Box>
-          <Form onSubmit={handleSubmit(onSubmit)}>
-            <div>
-              <label>Email</label>
-              <input
-                name="email"
-                type="email"
-                {...register("email", {
-                  required: true,
-                  pattern: /^\S+@\S+$/i,
-                })}
-              />
-              {errors.email && <p>This email field is required</p>}
-            </div>
+          <Form onSubmit={onSubmitRegister}>
             <div>
               <label>Name</label>
-              <input
-                name="name"
-                {...register("name", { required: true, maxLength: 10 })}
-              />
-              {errors.name && errors.name.type === "required" && (
-                <p>This name field is required</p>
-              )}
-              {errors.name && errors.name.type === "maxLength" && (
-                <p>Your input exceed maximum length</p>
-              )}
+              <input type="text" value={name} onChange={onChangeName} />
+            </div>
+            <div>
+              <label>Email</label>
+              <input type="email" value={email} onChange={onChangeEmail} />
             </div>
             <div>
               <label>Password</label>
               <input
-                name="password"
                 type="password"
-                {...register("password", { required: true, minLength: 6 })}
-              />
-              {errors.password && errors.password.type === "required" && (
-                <p>This password field is required</p>
-              )}
-              {errors.password && errors.password.type === "minLength" && (
-                <p>Password must have at least 6 characters</p>
-              )}
-            </div>
-            <div>
-              <label>Password Confirm</label>
-              <input
-                name="password_confirm"
-                type="password"
-                {...register("password_confirm", {
-                  required: true,
-                  validate: (value) => value === password.current,
-                })}
+                value={password}
+                onChange={onChangePassword}
               />
             </div>
             <div>
-              {errors.password_confirm &&
-                errors.password_confirm.type === "required" && (
-                  <p>This password confirm field is required</p>
-                )}
-              {errors.password_confirm &&
-                errors.password_confirm.type === "validate" && (
-                  <p>The passwords do not match</p>
-                )}
-
-              {errorFromSubmit && <p>{errorFromSubmit}</p>}
-
-              <Button type="submit" disabled={loading}>
-                가입완료
-              </Button>
+              <Button type="submit">가입완료</Button>
             </div>
             <div>
               <Link to="/login">이미 아이디가 있다면... </Link>

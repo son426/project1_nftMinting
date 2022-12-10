@@ -25,30 +25,31 @@ const Form = styled.form`
 `;
 
 function Login() {
-  const auth = getAuth();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-  const [errorFromSubmit, setErrorFromSubmit] = useState("");
-  const [loading, setLoading] = useState(false);
+  const onChangeEmail = (e) => {
+    setEmail(e.currentTarget.value);
+  };
+  const onChangePassword = (e) => {
+    setPassword(e.currentTarget.value);
+  };
 
-  const onSubmit = async (data) => {
-    try {
-      setLoading(true);
-
-      await signInWithEmailAndPassword(auth, data.email, data.password);
-
-      setLoading(false);
-    } catch (error) {
-      setErrorFromSubmit(error.message);
-      setLoading(false);
-      setTimeout(() => {
-        setErrorFromSubmit("");
-      }, 5000);
-    }
+  const onSubmitLogin = (e) => {
+    e.preventDefault();
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        console.log("로그인 성공");
+        // Signed in
+        const user = userCredential.user;
+        // ...
+      })
+      .catch((error) => {
+        console.log("로그인 실패");
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
   };
 
   return (
@@ -58,58 +59,26 @@ function Login() {
           <span className="header">Login</span>
         </TopBar>
         <Box>
-          <Form onSubmit={handleSubmit(onSubmit)}>
+          <Form onSubmit={onSubmitLogin}>
             <div>
               <label>Email</label>
-              <input
-                name="email"
-                type="email"
-                {...register("email", {
-                  required: true,
-                  pattern: /^\S+@\S+$/i,
-                })}
-              />
-              {errors.email && <p>This email field is required</p>}
+              <input type="email" value={email} onChange={onChangeEmail} />
             </div>
             <div>
               <label>Password</label>
               <input
-                name="password"
                 type="password"
-                {...register("password", { required: true, minLength: 6 })}
+                value={password}
+                onChange={onChangePassword}
               />
             </div>
-
-            {errors.password && errors.password.type === "required" && (
-              <p>This password field is required</p>
-            )}
-
-            {errors.password && errors.password.type === "minLength" && (
-              <p>Password must have at least 6 characters</p>
-            )}
-
-            {errorFromSubmit && <p>{errorFromSubmit}</p>}
             <div>
-              <Button type="submit" disabled={loading}>
-                로그인하기
-              </Button>
+              <Button type="submit">가입완료</Button>
             </div>
-            <Link
-              style={{ color: "gray", textDecoration: "none" }}
-              to="/register"
-            >
-              아직 아이디가 없다면...{" "}
-            </Link>
-            <Link
-              style={{
-                color: "gray",
-                textDecoration: "none",
-                marginLeft: "150px",
-              }}
-              to="/"
-            >
-              HOME{" "}
-            </Link>
+            <div>
+              <Link to="/register">회원가입</Link>
+              <Link to="/">HOME</Link>
+            </div>
           </Form>
         </Box>
       </Container>

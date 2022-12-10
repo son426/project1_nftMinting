@@ -21,6 +21,7 @@ import {
   updateDoc,
   doc,
 } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 
 const BoxCustom = styled(Box)`
   margin-bottom: 30px;

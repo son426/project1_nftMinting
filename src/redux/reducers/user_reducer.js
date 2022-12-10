@@ -8,12 +8,14 @@ const initialUserState = {
 export default function (state = initialUserState, action) {
   switch (action.type) {
     case SET_USER:
+      console.log("set user");
       return {
         ...state,
         currentUser: action.payload,
         isLoading: false,
       };
     case CLEAR_USER:
+      console.log("clear user");
       return {
         ...state,
         currentUser: null,
