@@ -22,11 +22,18 @@ const Form = styled.form`
   Button {
     width: 100%;
   }
+  .errorBox {
+    color: tomato;
+    height: 40px;
+    display: flex;
+    align-items: center;
+  }
 `;
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const onChangeEmail = (e) => {
     setEmail(e.currentTarget.value);
@@ -49,6 +56,7 @@ function Login() {
         console.log("로그인 실패");
         const errorCode = error.code;
         const errorMessage = error.message;
+        setError(errorCode);
       });
   };
 
@@ -72,12 +80,21 @@ function Login() {
                 onChange={onChangePassword}
               />
             </div>
+            <div className="errorBox" style={{}}>
+              {error && console.log(error)}
+              {error === "auth/invalid-email" && "아이디 입력바람."}
+              {error === "auth/user-not-found" && "해당 아이디 없음"}
+              {error === "auth/auth/internal-error" &&
+                "내부 에러. 비번 안쳤을때인가"}
+              {error === "auth/wrong-password" && "잘못된 비밀번호"}
+              {error === "auth/too-many-requests" &&
+                "너무 많은 트래픽.   잠시 후 시도바람."}
+            </div>
             <div>
               <Button type="submit">가입완료</Button>
             </div>
             <div>
               <Link to="/register">회원가입</Link>
-              <Link to="/">HOME</Link>
             </div>
           </Form>
         </Box>
