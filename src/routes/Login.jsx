@@ -82,7 +82,7 @@ function Login() {
             </div>
             <div className="errorBox" style={{}}>
               {error && console.log(error)}
-              {error === "auth/invalid-email" && "아이디 입력바람."}
+              {error === "auth/invalid-email" && "아이디 똑바로 입력바람."}
               {error === "auth/user-not-found" && "해당 아이디 없음"}
               {error === "auth/auth/internal-error" &&
                 "내부 에러. 비번 안쳤을때인가"}
@@ -91,7 +91,7 @@ function Login() {
                 "너무 많은 트래픽.   잠시 후 시도바람."}
             </div>
             <div>
-              <Button type="submit">가입완료</Button>
+              <Button type="submit">로그인하기</Button>
             </div>
             <div>
               <Link to="/register">회원가입</Link>

@@ -8,6 +8,7 @@ import {
 } from "firebase/auth";
 import { Wrapper, Container, TopBar, Box, Button } from "./Main";
 import styled from "styled-components";
+import { Icon } from "./Projects";
 
 const Form = styled.form`
   div {
@@ -72,6 +73,9 @@ function Register() {
     <Wrapper>
       <Container>
         <TopBar>
+          <span className="back">
+            <Link to="/login">{Icon}</Link>
+          </span>
           <span className="header">Register</span>
         </TopBar>
         <Box>
@@ -100,7 +104,7 @@ function Register() {
             </div>
             <div className="errorBox" style={{}}>
               {error && console.log(error)}
-              {error === "auth/invalid-email" && "아이디 입력바람."}
+              {error === "auth/invalid-email" && "아이디 똑바로 입력바람."}
               {error === "auth/email-already-in-use" && "이미 사용중인 아이디"}
               {error === "auth/internal-error" &&
                 "내부 에러. 비번 안쳤을때인가?"}

@@ -3,6 +3,7 @@ import { accentColor, bgColor } from "../style";
 import { Link } from "react-router-dom";
 import React from "react";
 import { getAuth, signOut } from "firebase/auth";
+import { Icon } from "./Projects";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -101,7 +102,6 @@ function Main() {
       <Container>
         <TopBar>
           <span className="header">Main</span>
-          <button onClick={onClickSignOut}>로그아웃</button>
         </TopBar>
         <Box>
           <Button>
@@ -110,6 +110,16 @@ function Main() {
           <Button>
             <Link to="./mycollections">MyPage</Link>
           </Button>
+          <span
+            onClick={onClickSignOut}
+            className="back"
+            style={{
+              fontSize: "15px",
+              fontWeight: 600,
+            }}
+          >
+            로그아웃
+          </span>
         </Box>
       </Container>
     </Wrapper>

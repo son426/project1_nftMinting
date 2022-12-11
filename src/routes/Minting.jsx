@@ -115,6 +115,11 @@ function Minting() {
         <BoxCustom>
           <Button onClick={onClickConnect}>지갑 연결하기</Button>
           <Button onClick={onClickMint}>기부하기</Button>
+          <div style={{ marginBottom: "20px" }}>
+            <Link style={{ fontSize: "20px" }} to="/mycollections">
+              마이컬렉션
+            </Link>
+          </div>
           <div>
             <p id="blockNubmer">현재 블록: #00000000</p>
             <p id="mintStartBlockNumber">민팅 시작 블록: #00000000</p>
