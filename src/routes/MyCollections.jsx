@@ -76,10 +76,10 @@ function MyCollections() {
     <div key={index}>
       <Img>
         <Link className="collection" to={`/mycollections/${value.imgId}`}>
-          <img src={data[value.projectNum - 1].imgs[value.imgId]}></img>
+          <img src={data[value.projectNum - 1]?.imgs[value.imgId]}></img>
           <div className="text">
             <span className="title">
-              {data[value.projectNum - 1].metas[value.imgId]["title"]}
+              {data[value.projectNum - 1]?.metas[value.imgId]["title"]}
             </span>
           </div>
           <div className="arrow">

@@ -82,6 +82,13 @@ function Minting() {
     createMyCollection();
   };
 
+  const 버튼수정 = () => {
+    document.getElementById("connectButton").innerHTML = "완료 V";
+    document.getElementById("connectButton").style.backgroundColor = "white";
+    document.getElementById("connectButton").style.color = accentColor;
+    document.getElementById("connectButton").style.fontWeight = "600";
+  };
+
   /////// 위는 파이어베이스
   /////// 아래는 기존 코드
 
@@ -89,18 +96,20 @@ function Minting() {
     // 이거 어떻게 바꾸지.
     // 민팅 성공일때만 하는 코드
     // async,await // promise 등 공부필요
-    publicMint();
-    setTimeout(saveImgIds, 7000);
+    (async () => {
+      await publicMint();
+      await saveImgIds();
+      await 로컬스토리지가져와서넘기기();
+    })();
   };
 
   const onClickConnect = (e) => {
-    connect();
+    (async () => {
+      await connect();
+      await 버튼수정();
+    })();
+
     // 커넥트가 완료됐을 경우만 완료뜨는 코드 추가해야함.
-    로컬스토리지가져와서넘기기();
-    e.currentTarget.innerHTML = "완료 V";
-    e.currentTarget.style.backgroundColor = "white";
-    e.currentTarget.style.color = accentColor;
-    e.currentTarget.style.fontWeight = "600";
   };
 
   return (
@@ -113,7 +122,9 @@ function Minting() {
           <span className="header">Minting</span>
         </TopBar>
         <BoxCustom>
-          <Button onClick={onClickConnect}>지갑 연결하기</Button>
+          <Button id="connectButton" onClick={onClickConnect}>
+            지갑 연결하기
+          </Button>
           <Button onClick={onClickMint}>기부하기</Button>
           <div style={{ marginBottom: "20px" }}>
             <Link style={{ fontSize: "20px" }} to="/mycollections">
