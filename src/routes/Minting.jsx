@@ -35,16 +35,14 @@ const saveImgIds = () => {
   const savedImgIds = localStorage.getItem("myCollection");
   const parsedImgIds = JSON.parse(savedImgIds);
 
-  if (minting === true) {
-    if (parsedImgIds === null) {
-      let imgIds = [];
-      imgIds.push(imgIndex);
-      localStorage.setItem("myCollection", JSON.stringify(imgIds));
-    } else {
-      let imgIds = parsedImgIds;
-      imgIds.push(imgIndex);
-      localStorage.setItem("myCollection", JSON.stringify(imgIds));
-    }
+  if (parsedImgIds === null) {
+    let imgIds = [];
+    imgIds.push(imgIndex);
+    localStorage.setItem("myCollection", JSON.stringify(imgIds));
+  } else {
+    let imgIds = parsedImgIds;
+    imgIds.push(imgIndex);
+    localStorage.setItem("myCollection", JSON.stringify(imgIds));
   }
 };
 
@@ -79,7 +77,10 @@ function Minting() {
   };
 
   const 로컬스토리지가져와서넘기기 = () => {
-    createMyCollection();
+    const minting = JSON.parse(localStorage.getItem("minting"));
+    if (minting) {
+      createMyCollection();
+    }
   };
 
   const 버튼수정 = () => {
@@ -98,7 +99,7 @@ function Minting() {
     // async,await // promise 등 공부필요
     (async () => {
       await publicMint();
-      await saveImgIds();
+      // await saveImgIds();
       await 로컬스토리지가져와서넘기기();
     })();
   };
