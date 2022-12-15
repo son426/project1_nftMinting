@@ -35,15 +35,18 @@ const Button = styled.button`
 const Meta = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: baseline;
   padding: 30px;
+  width: 300px;
   gap: 20px;
   .title {
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 600;
   }
-  .seller {
-    font-size: 30px;
-    font-weight: 400;
+  .content {
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.5);
   }
 `;
 

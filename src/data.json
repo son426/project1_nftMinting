@@ -1,10 +1,10 @@
 [
   {
     "project_img_src": "https://mediahub.seoul.go.kr/uploads/mediahub/2021/12/pphTcatVeCkpUMHeFnQROMtsStzEwuQr.png",
-    "project_title": "프로젝트1 타이틀",
-    "project_subtitle": "프로젝트1 서브타이틀",
+    "project_title": "상록보육원 그림",
+    "project_subtitle": "햇님반 친구 10명이 그린, 내가 살고 싶은 집",
     "project_period": "22.12.05 ~ 22.12.31",
-    "project_summary": "이 프로젝트는 어쩌구 저쩌구 하는 좋고 좋은 그런 프로젝트입니다. 무슨 단체에서 어떻게 해서, 기부금은 어떻게 사용되는 프로젝트입니다.",
+    "project_summary": "지난 11월 25일에 진행되었던 그림그리기 작품들입니다. 내가 살고 싶은 집이라는 주제로, 6~7살인 햇님반 친구 10명이 직접 그린 그림들입니다. 가지각색인 친구들의 그림을 응원해주세요.",
     "id": 1,
     "img_src": "https://gateway.pinata.cloud/ipfs/QmbEGKpTz8HmvpBkgnJYFAK9pXpcqutEcUY4TU8UC49SNu?filename=%25EA%25B7%25B8%25EB%25A6%25BC1.png",
     "imgs": [
@@ -20,28 +20,58 @@
       "https://gateway.pinata.cloud/ipfs/QmTdFMvbGF2W6wAx4cJmazDn8NMy89BdaXCuGzYsA36JGP?filename=%25EA%25B7%25B8%25EB%25A6%25BC7.png"
     ],
     "metas": [
-      { "title": "그림1", "content": "그림1 설명" },
-      { "title": "그림2", "content": "그림2 설명" },
-      { "title": "그림3", "content": "그림3 설명" },
-      { "title": "그림4", "content": "그림4 설명" },
-      { "title": "그림5", "content": "그림5 설명" },
-      { "title": "그림6", "content": "그림6 설명" },
-      { "title": "그림7", "content": "그림7 설명" },
-      { "title": "그림8", "content": "그림8 설명" },
-      { "title": "그림9", "content": "그림9 설명" },
-      { "title": "그림10", "content": "그림10 설명" }
+      {
+        "title": "이시우 살고싶은 집",
+        "content": "6세 이시우 어린이가 살고싶은 집"
+      },
+      {
+        "title": "이서연 살고싶은 집",
+        "content": "6세 이서연 어린이가 살고싶은 집"
+      },
+      {
+        "title": "박서윤 살고싶은 집",
+        "content": "6세 박서윤 어린이가 살고싶은 집"
+      },
+      {
+        "title": "김지우 살고싶은 집",
+        "content": "6세 김지우 어린이가 살고싶은 집"
+      },
+      {
+        "title": "박하준 살고싶은 집",
+        "content": "6세 박하준 어린이가 살고싶은 집"
+      },
+      {
+        "title": "황민서 살고싶은 집",
+        "content": "6세 황민서 어린이가 살고싶은 집"
+      },
+      {
+        "title": "손시우 살고싶은 집",
+        "content": "6세 손시우 어린이가 살고싶은 집"
+      },
+      {
+        "title": "소율 살고싶은 집",
+        "content": "6세 소율 어린이가 살고싶은 집"
+      },
+      {
+        "title": "최예린 살고싶은 집",
+        "content": "6세 최예린 어린이가 살고싶은 집"
+      },
+      {
+        "title": "윤서연 살고싶은 집",
+        "content": "6세 윤서연 어린이가 살고싶은 집"
+      }
     ],
     "seller": "고려대학교",
     "seller_img_src": "https://img2.daumcdn.net/thumb/R658x0.q70/?fname=https://t1.daumcdn.net/news/201903/29/Edaily/20190329005848063xtmf.jpg"
   },
   {
-    "project_img_src": "http://img.hani.co.kr/imgdb/resize/2021/0430/161967676828_20210430.JPG",
-    "project_title": "프로젝트2 타이틀",
-    "project_subtitle": "프로젝트2 서브타이틀",
-    "project_period": "22.12.05 ~ 22.12.31",
-    "project_summary": "이 프로젝트는 어쩌구 저쩌구 하는 좋고 좋은 그런 프로젝트입니다. 무슨 단체에서 어떻게 해서, 기부금은 어떻게 사용되는 프로젝트입니다.",
+    "project_img_src": "https://img.hani.co.kr/imgdb/resize/2019/0605/00500100_20190605.JPG",
+    "project_title": "보문요양원 그림",
+    "project_subtitle": "요양원 치매 어르신 자유주제 그림 그리기",
+    "project_period": "22.12.15 ~ 23.01.12",
+    "project_summary": "지난 12월 1일 목요일에 진행되었던, 그림 그리기 활동의 작품들입니다. 자화상부터 시작해서, 그림일기, 풍경화 등 다양한 작품이 있습니다. 치매를 앓고 계시는 10명의 어르신들이 2시간동안 진행했으며, 스케치뿐만 아니라 채색까지 모두 끝마쳤습니다.",
     "id": 2,
-    "img_src": "https://gateway.pinata.cloud/ipfs/QmbEGKpTz8HmvpBkgnJYFAK9pXpcqutEcUY4TU8UC49SNu?filename=%25EA%25B7%25B8%25EB%25A6%25BC1.png",
+    "img_src": "https://img.hani.co.kr/imgdb/resize/2019/0605/00500100_20190605.JPG",
     "imgs": [
       "https://gateway.pinata.cloud/ipfs/QmVyzBBHZEmJvJQEh9PGsfjtN2o4r4hd68utAVQzbPzwLM?filename=%25EA%25B7%25B8%25EB%25A6%25BC11.png",
       "https://gateway.pinata.cloud/ipfs/QmduwnfvNVAqqdkxz61kVM5c7Hh5Gtt9o7zWjio1HFYNC3?filename=%25EA%25B7%25B8%25EB%25A6%25BC12.png",
@@ -55,18 +85,49 @@
       "https://gateway.pinata.cloud/ipfs/QmUv1o31srjCM2EqqsLodF6UXUHAJ64wGXaHBnufwdLmDV?filename=%25EA%25B7%25B8%25EB%25A6%25BC20.png"
     ],
     "metas": [
-      { "title": "그림1", "content": "그림1 설명" },
-      { "title": "그림2", "content": "그림2 설명" },
-      { "title": "그림3", "content": "그림3 설명" },
-      { "title": "그림4", "content": "그림4 설명" },
-      { "title": "그림5", "content": "그림5 설명" },
-      { "title": "그림6", "content": "그림6 설명" },
-      { "title": "그림7", "content": "그림7 설명" },
-      { "title": "그림8", "content": "그림8 설명" },
-      { "title": "그림9", "content": "그림9 설명" },
-      { "title": "그림10", "content": "그림10 설명" }
+      {
+        "title": "손정식 자화상",
+        "content": "63세 손정식 어르신의 자화상입니다"
+      },
+      {
+        "title": "손영수 자화상",
+        "content": "84세 손영수 어르신의 자화상입니다"
+      },
+      {
+        "title": "김옥분 자화상",
+        "content": "72세 김옥분 어르신의 자화상입니다"
+      },
+
+      {
+        "title": "김미선 자화상",
+        "content": "58세 김미선 어르신의 자화상입니다"
+      },
+      {
+        "title": "이영자 그림일기",
+        "content": "92세 이영자 어르신의 그림일기입니다"
+      },
+      {
+        "title": "박광남 자화상",
+        "content": "70세 박광남 어르신의 좋아하는 음식입니다"
+      },
+      {
+        "title": "이지훈 자화상",
+        "content": "71세 이지훈 어르신의 좋아하는 음식입니다"
+      },
+      {
+        "title": "김말자 자화상",
+        "content": "84세 김말자 어르신의 풍경화입니다"
+      },
+      {
+        "title": "나꽃분 자화상",
+        "content": "82세 나꽃분 어르신의 풍경화입니다"
+      },
+      {
+        "title": "박지선 자화상",
+        "content": "97세 박지선 어르신의 풍경화입니다"
+      }
     ],
-    "seller": "연세대학교",
+    "seller": "보문요양원",
     "seller_img_src": "https://campustown.seoul.go.kr/site/main/file/image/uu/77ad994cf95c4277bad411f6c7b97c17"
   }
 ]

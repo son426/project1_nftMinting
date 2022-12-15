@@ -6,9 +6,11 @@ import data from "../data.json";
 
 import React from "react";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const Icon = <FontAwesomeIcon className="icon" icon={faChevronLeft} />;
+export const Icon2 = <FontAwesomeIcon className="icon" icon={faChevronRight} />;
 
 const Project = styled.div`
   width: 100%;
@@ -19,13 +21,15 @@ const Project = styled.div`
     width: 100%;
   }
   span {
-    padding: 10px;
+    padding-left: 10px;
   }
   .title {
+    padding: 10px;
     font-size: 22px;
     font-weight: 600;
   }
   .subtitle {
+    padding: 5px 10px;
     font-size: 15px;
     font-weight: 600;
     color: rgba(0, 0, 0, 0.5);
@@ -33,6 +37,7 @@ const Project = styled.div`
   .period {
     font-size: 13px;
     font-weight: 600;
+    padding-bottom: 15px;
   }
 `;
 

@@ -2,7 +2,7 @@ import { Wrapper, Container, TopBar, Box } from "./Main";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import data from "../data.json";
-import { Icon } from "./Projects";
+import { Icon, Icon2 } from "./Projects";
 import { useState, useEffect, useId } from "react";
 // 파이어베이서 파일에서 import 해온 db
 import { db } from "../firebase";
@@ -17,11 +17,15 @@ import {
 import { getAuth } from "firebase/auth";
 
 const Img = styled.div`
+  width: 90%;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 10px 0px;
   border-bottom: 1px solid black;
+  a {
+    width: 100%;
+  }
   .img__title {
     font-size: 20px;
     font-weight: 600;
@@ -73,21 +77,19 @@ function MyCollections() {
   }, []);
 
   const showMyCollection = myCollection?.map((value, index) => (
-    <div key={index}>
-      <Img>
-        <Link className="collection" to={`/mycollections/${value.imgId}`}>
-          <img src={data[value.projectNum - 1]?.imgs[value.imgId]}></img>
-          <div className="text">
-            <span className="title">
-              {data[value.projectNum - 1]?.metas[value.imgId]["title"]}
-            </span>
-          </div>
-          <div className="arrow">
-            <span>👉</span>
-          </div>
-        </Link>
-      </Img>
-    </div>
+    <Img key={index}>
+      <Link className="collection" to={`/mycollections/${value.imgId}`}>
+        <img src={data[value.projectNum - 1]?.imgs[value.imgId]}></img>
+        <div className="text">
+          <span className="title">
+            {data[value.projectNum - 1]?.metas[value.imgId]["title"]}
+          </span>
+        </div>
+        <div className="arrow">
+          <span style={{ marginLeft: "10px" }}>{Icon2}</span>
+        </div>
+      </Link>
+    </Img>
   ));
 
   return (

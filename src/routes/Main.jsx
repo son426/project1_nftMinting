@@ -14,7 +14,6 @@ export const Container = styled.div`
   width: 375px;
   min-height: 812px;
   position: relative;
-
   display: flex;
   flex-direction: column;
   align-items: center;
