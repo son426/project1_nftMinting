@@ -132,7 +132,14 @@ function Minting() {
               마이컬렉션
             </Link>
           </div>
-          <div>
+          <div
+            style={{
+              paddingTop: "25px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "baseline",
+            }}
+          >
             <p id="blockNubmer">현재 블록: #00000000</p>
             <p id="mintStartBlockNumber">민팅 시작 블록: #00000000</p>
             <p id="mintPrice">민팅 가격: 0 KLAY</p>
@@ -141,14 +148,45 @@ function Minting() {
               현재 블록넘버 확인하기1(Klaytnscope)
             </a>
           </div>
-          <div>
-            <h2>MY WALLET</h2>
+          <div
+            style={{
+              width: "73%",
+              paddingTop: "25px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "baseline",
+            }}
+          >
+            <h2
+              style={{
+                fontSize: "25px",
+                fontWeight: "600",
+                marginBottom: "10px",
+              }}
+            >
+              MY WALLET
+            </h2>
             <p id="myWallet">지갑주소: 연결되지 않음</p>
             <p id="myKlay">잔액: 연결되지 않음</p>
-            <hr />
           </div>
-          <div>
-            <h2>MINT</h2>
+          <div
+            style={{
+              width: "73%",
+              paddingTop: "25px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "baseline",
+            }}
+          >
+            <h2
+              style={{
+                fontSize: "25px",
+                fontWeight: "600",
+                marginBottom: "10px",
+              }}
+            >
+              MINT
+            </h2>
             <p id="mintCnt">0 / 0</p>
             <label id="amount" htmlFor="amount">
               민팅 수량
