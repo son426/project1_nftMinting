@@ -9,6 +9,7 @@ import {
 import { Wrapper, Container, TopBar, Box, Button } from "./Main";
 import styled from "styled-components";
 import { Icon } from "./Projects";
+import { Helmet } from "react-helmet";
 
 const Form = styled.form`
   div {
@@ -71,6 +72,9 @@ function Register() {
 
   return (
     <Wrapper>
+      <Helmet>
+        <title>Register</title>
+      </Helmet>
       <Container>
         <TopBar>
           <span className="back">

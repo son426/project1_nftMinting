@@ -15,6 +15,7 @@ import {
   doc,
 } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
+import { Helmet } from "react-helmet";
 
 const Img = styled.div`
   width: 90%;
@@ -94,6 +95,9 @@ function MyCollections() {
 
   return (
     <Wrapper>
+      <Helmet>
+        <title>My Collections</title>
+      </Helmet>
       <Container>
         <TopBar>
           <span className="back">

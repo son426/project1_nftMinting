@@ -4,6 +4,7 @@ import data from "../data.json";
 import styled from "styled-components";
 import { accentColor, bgColor } from "../style";
 import { Icon } from "./Projects";
+import { Helmet } from "react-helmet";
 
 const ImgDetail = styled.div`
   display: flex;
@@ -75,6 +76,9 @@ function Collection() {
 
   return (
     <Wrapper>
+      <Helmet>
+        <title>Collection</title>
+      </Helmet>
       <Container>
         <TopBar>
           <span className="back">

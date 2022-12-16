@@ -1,8 +1,8 @@
 import { Wrapper, Container, TopBar, Box, backIcon } from "./Main";
 import styled from "styled-components";
-import { accentColor, bgColor } from "../style";
 import { Link } from "react-router-dom";
 import data from "../data.json";
+import { Helmet } from "react-helmet";
 
 import React from "react";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
@@ -44,6 +44,9 @@ const Project = styled.div`
 function Projects() {
   return (
     <Wrapper>
+      <Helmet>
+        <title>Projects</title>
+      </Helmet>
       <Container>
         <TopBar>
           <span className="back">

@@ -3,7 +3,7 @@ import { accentColor, bgColor } from "../style";
 import { Link } from "react-router-dom";
 import React from "react";
 import { getAuth, signOut } from "firebase/auth";
-import { Icon } from "./Projects";
+import { Helmet } from "react-helmet";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -98,6 +98,9 @@ function Main() {
 
   return (
     <Wrapper>
+      <Helmet>
+        <title>Main</title>
+      </Helmet>
       <Container>
         <TopBar>
           <span className="header">Main</span>

@@ -4,6 +4,7 @@ import { useParams, Link } from "react-router-dom";
 import styled from "styled-components";
 import data from "../data.json";
 import { Icon } from "./Projects";
+import { Helmet } from "react-helmet";
 
 function ProjectDetail() {
   const { projectId } = useParams();
@@ -11,6 +12,9 @@ function ProjectDetail() {
 
   return (
     <Wrapper>
+      <Helmet>
+        <title>Project Detail</title>
+      </Helmet>
       <Container>
         <TopBar>
           <span className="back">

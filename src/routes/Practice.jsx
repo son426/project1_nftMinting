@@ -9,6 +9,7 @@ import {
   updateDoc,
   doc,
 } from "firebase/firestore";
+import { Helmet } from "react-helmet";
 
 function Practice() {
   // 이따가 users 추가하고 삭제하는거 진행을 도와줄 state

@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import styled from "styled-components";
 import { Wrapper, Container, TopBar, Box, Button } from "./Main";
+import { Helmet } from "react-helmet";
 
 const Form = styled.form`
   div {
@@ -62,6 +63,9 @@ function Login() {
 
   return (
     <Wrapper>
+      <Helmet>
+        <title>Login</title>
+      </Helmet>
       <Container>
         <TopBar>
           <span className="header">Login</span>

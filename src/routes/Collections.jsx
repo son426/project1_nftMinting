@@ -2,6 +2,7 @@ import { Wrapper, Container, TopBar, Box } from "./Main";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import data from "../data.json";
+import { Helmet } from "react-helmet";
 
 const BoxCustom = styled(Box)`
   padding: 20px;
@@ -40,6 +41,9 @@ const Img = styled.div`
 function Collections() {
   return (
     <Wrapper>
+      <Helmet>
+        <title>Collections</title>
+      </Helmet>
       <Container>
         <TopBar>
           <span className="header">Collections</span>

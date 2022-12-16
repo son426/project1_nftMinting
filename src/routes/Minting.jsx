@@ -21,7 +21,7 @@ import {
   updateDoc,
   doc,
 } from "firebase/firestore";
-import { getAuth } from "firebase/auth";
+import { Helmet } from "react-helmet";
 
 const BoxCustom = styled(Box)`
   margin-bottom: 30px;
@@ -115,6 +115,9 @@ function Minting() {
 
   return (
     <Wrapper>
+      <Helmet>
+        <title>Minting</title>
+      </Helmet>
       <Container>
         <TopBar>
           <span className="back">
